@@ -12,24 +12,37 @@ plugins {
 }
 
 repositories {
-    // Use JCenter for resolving dependencies.
-    jcenter()
+    mavenCentral()
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21) // or 22
+    }
+}
+
+
 dependencies {
+
+    implementation 'io.vavr:vavr:0.10.5'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'org.slf4j:slf4j-simple:1.7.25'
+
+
     // Use JUnit Jupiter API for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.2'
 
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:29.0-jre'
 }
 
 application {
     // Define the main class for the application.
-    mainClass = 'com.itlibrium.discounts.App'
+    mainClass = 'com.itlibrium.perfectrent.App'
 }
 
 tasks.named('test') {
