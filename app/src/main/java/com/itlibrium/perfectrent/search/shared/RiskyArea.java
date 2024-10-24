@@ -1,7 +1,5 @@
 package com.itlibrium.perfectrent.search.shared;
 
-import lombok.Value;
-
 public record RiskyArea(
     Area area,
     String reason
